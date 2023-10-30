@@ -2,9 +2,15 @@
   "framework": null,
   "buildCommand": "",
   "functions": {
-    "api/index.ts": {
+    "api/**/*.ts": {
       "maxDuration": 10
     }
   },
-  "rewrites": [{ "source": "/(.*)", "destination": "/api" }]
+  "rewrites": [{ "source": "/(.*)", "destination": "/api" }],
+  "crons": [
+    {
+      "path": "/api/monitor/send_webhook",
+      "schedule": "* * * * *"
+    }
+  ]
 }
